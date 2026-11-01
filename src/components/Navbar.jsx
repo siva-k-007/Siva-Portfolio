@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react'
 import { personalInfo } from '../data/portfolioData'
 
@@ -28,13 +29,12 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${
-        isOpen
+      className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${isOpen
           ? 'bg-[#ff2a2a] py-4'
           : isScrolled
             ? 'bg-transparent py-4'
             : 'bg-transparent py-6'
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
         {/* Left: Brand Logo */}
@@ -101,9 +101,8 @@ export default function Navbar() {
 
       {/* Mobile Dropdown Panel */}
       <div
-        className={`md:hidden absolute top-full left-0 w-full bg-[#ff2a2a] shadow-2xl overflow-hidden transition-all duration-300 ${
-          isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
-        }`}
+        className={`md:hidden absolute top-full left-0 w-full bg-[#ff2a2a] shadow-2xl overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
+          }`}
       >
         <div className="px-6 py-4 flex flex-col space-y-3">
           {navLinks.map((link) => (
@@ -128,3 +127,4 @@ export default function Navbar() {
     </nav>
   )
 }
+
