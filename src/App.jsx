@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
 import TechnicalSkills from './components/TechnicalSkills'
+import Services from './components/Services'
 import Leadership from './components/Leadership'
 import { leadershipList } from './data/portfolioData'
 
@@ -14,6 +15,7 @@ function App() {
       <Hero />
       <About />
       <TechnicalSkills />
+      <Services />
       {leadershipList && leadershipList.length > 0 && <Leadership />}
     </>
   )
