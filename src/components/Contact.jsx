@@ -48,7 +48,7 @@ export default function Contact() {
     if (!isConfigured) {
       // Fallback: open mail client directly
       window.open(
-        `mailto:${personalInfo.emails.primary}?subject=Portfolio Contact from ${firstName} ${lastName}&body=${encodeURIComponent(
+        `mailto:${personalInfo.emails.primary}?subject=Portfolio message from ${firstName} ${lastName}&body=${encodeURIComponent(
           `From: ${firstName} ${lastName}\nEmail: ${email}\n\n${message}`
         )}`,
         '_blank'
@@ -302,3 +302,4 @@ export default function Contact() {
     </section>
   )
 }
+
