@@ -5,6 +5,7 @@ import About from './components/About'
 import TechnicalSkills from './components/TechnicalSkills'
 import Services from './components/Services'
 import Leadership from './components/Leadership'
+import Contact from './components/Contact'
 import { leadershipList } from './data/portfolioData'
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <TechnicalSkills />
       <Services />
       {leadershipList && leadershipList.length > 0 && <Leadership />}
+      <Contact />
     </>
   )
 }
