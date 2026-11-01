@@ -1,6 +1,7 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import TechnicalSkills from './components/TechnicalSkills'
+import Leadership from './components/Leadership'
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Navbar />
       <Hero />
       <TechnicalSkills />
+      <Leadership />
     </div>
   )
 }

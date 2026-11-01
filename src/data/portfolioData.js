@@ -130,7 +130,22 @@ export const technicalSkills = {
   ],
 };
 
-export const leadershipList = [];
+export const leadershipList = [
+  {
+    title: "College Technical Symposium",
+    description:
+      "Coordinated coding competitions and technical sessions, assisting student peers with logic design and debugging challenges.",
+    role: "Event Coordinator",
+    badge: "Campus",
+  },
+  {
+    title: "Web Developer Community",
+    description:
+      "Active participant in technical workshops and peer learning sessions, discussing modern full-stack development and Java architectures.",
+    role: "Core Member",
+    badge: "Community",
+  },
+];
 
 export const internshipsList = [
   {
