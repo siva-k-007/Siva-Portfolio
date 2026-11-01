@@ -76,7 +76,7 @@ export default function About() {
                     {/* Portrait Photo */}
                     <img
                       src={stackImage}
-                      alt={personalInfo.name}
+                      alt="Siva — Java Full Stack Developer., TAP Academy student"
                       className="w-full flex-1 rounded-xl object-cover object-top shadow-inner"
                     />
                   </div>
