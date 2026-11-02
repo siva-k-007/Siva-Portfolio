@@ -1,9 +1,56 @@
+import { FaJava, FaCode } from 'react-icons/fa'
+import {
+  SiPython,
+  SiJavascript,
+  SiTypescript,
+  SiHtml5,
+  SiCss,
+  SiTailwindcss,
+  SiMysql,
+  SiMongodb,
+  SiGit,
+  SiGithub,
+  SiPostman,
+  SiCursor,
+} from 'react-icons/si'
+import { VscVscode } from 'react-icons/vsc'
 import { technicalSkills } from '../data/portfolioData'
+
+// Logo for each skill, matched by the skill name used in portfolioData.js
+// To add a new logo: import it above and add a line here
+const skillIcons = {
+  Java: { Icon: FaJava, color: '#f89820' },
+  Python: { Icon: SiPython, color: '#3776ab' },
+  JavaScript: { Icon: SiJavascript, color: '#f7df1e' },
+  TypeScript: { Icon: SiTypescript, color: '#3178c6' },
+  HTML: { Icon: SiHtml5, color: '#e34f26' },
+  CSS: { Icon: SiCss, color: '#1572b6' },
+  'Tailwind CSS': { Icon: SiTailwindcss, color: '#06b6d4' },
+  MySQL: { Icon: SiMysql, color: '#4479a1' },
+  MongoDB: { Icon: SiMongodb, color: '#47a248' },
+  Git: { Icon: SiGit, color: '#f05032' },
+  GitHub: { Icon: SiGithub, color: '#ffffff' },
+  Postman: { Icon: SiPostman, color: '#ff6c37' },
+  'VS Code': { Icon: VscVscode, color: '#007acc' },
+  Cursor: { Icon: SiCursor, color: '#ffffff' },
+  // Antigravity has no public logo icon, so it uses a generic code icon
+  Antigravity: { Icon: FaCode, color: '#8ab4f8' },
+}
 
 // Individual skill badge pill
 export function SkillBadge({ name }) {
+  const icon = skillIcons[name]
+
   return (
-    <span className="inline-flex items-center rounded-full px-4 py-2 bg-white/5 border border-white/10 text-white text-sm font-medium hover:bg-red-600/20 transition-colors duration-200">
+    <span className="inline-flex items-center gap-2 rounded-full px-4 py-2 bg-white/5 border border-white/10 text-white text-sm font-medium hover:bg-red-600/20 transition-colors duration-200">
+      {/* Technology logo (skipped if no logo is defined for this skill) */}
+      {icon && (
+        <icon.Icon
+          className="w-4 h-4 shrink-0"
+          style={{ color: icon.color }}
+          aria-hidden="true"
+        />
+      )}
       {name}
     </span>
   )

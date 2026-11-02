@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import heroVideo from '../assets/hero/hero.mp4'
@@ -7,9 +7,6 @@ import { heroContent, socialLinks } from '../data/portfolioData'
 
 // Hero section component with background video player and action controls
 export default function Hero() {
-  const videoRef = useRef(null)
-  const [isPlaying, setIsPlaying] = useState(false)
-
   // Initialize AOS scroll animations and handle layout shift on window load
   useEffect(() => {
     AOS.init({ duration: 1000, once: true, easing: 'ease-out' })
@@ -21,20 +18,6 @@ export default function Hero() {
     window.addEventListener('load', handleLoad)
     return () => window.removeEventListener('load', handleLoad)
   }, [])
-
-  // Toggle video playback with propagation stopped
-  const toggleVideo = (e) => {
-    e.stopPropagation()
-    if (!videoRef.current) return
-
-    if (isPlaying) {
-      videoRef.current.pause()
-      setIsPlaying(false)
-    } else {
-      videoRef.current.play()
-      setIsPlaying(true)
-    }
-  }
 
   // Social link definitions for reusable rendering
   const socialItems = [
@@ -78,11 +61,9 @@ export default function Hero() {
     >
       {/* Background Video with Poster fallback */}
       <video
-        ref={videoRef}
         className="absolute inset-0 w-full h-full object-contain object-top md:object-right z-0"
         playsInline
         poster={heroPoster}
-        onEnded={() => setIsPlaying(false)}
       >
         <source src={heroVideo} type="video/mp4" />
       </video>
@@ -198,39 +179,6 @@ export default function Hero() {
               </a>
             )}
           </div>
-        </div>
-
-        {/* Right Block: Play Reel Control */}
-        <div
-          data-aos="zoom-in"
-          data-aos-delay="600"
-          className="mt-8 md:mt-0 flex flex-col items-center"
-        >
-          <button
-            type="button"
-            onClick={toggleVideo}
-            aria-label={isPlaying ? 'Pause Reel' : 'Play Reel'}
-            className="w-12 h-12 md:w-20 md:h-20 rounded-full border border-white/30 bg-black/20 backdrop-blur-md hover:scale-110 hover:bg-[#ff2a2a] transition-all duration-200 flex items-center justify-center shadow-[0_0_20px_rgba(255,42,42,0.5)] cursor-pointer"
-          >
-            {isPlaying ? (
-              <svg
-                className="w-6 h-6 md:w-8 md:h-8 text-white fill-current"
-                viewBox="0 0 24 24"
-              >
-                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
-              </svg>
-            ) : (
-              <svg
-                className="w-6 h-6 md:w-8 md:h-8 text-white fill-current ml-1"
-                viewBox="0 0 24 24"
-              >
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            )}
-          </button>
-          <span className="text-white text-xs uppercase tracking-widest mt-2 font-medium">
-            {isPlaying ? 'Pause' : 'Play Reel'}
-          </span>
         </div>
       </div>
 
